@@ -32,7 +32,7 @@ function EditOrCreateNotePage(params) {
     }
 
     return (
-        <div className='container mt-4 shadow-lg' style={{ backgroundColor: '#cdcdcd', borderRadius: '10px' }}>
+        <div className='container w-50 mt-4 shadow-lg' style={{ backgroundColor: '#cdcdcd', borderRadius: '10px' }}>
           <form onSubmit={handleSubmit}>
             <h4 className='text-center pt-4 mb-3'> {params.isCreate ? 'New' : 'Edit'} Note </h4>
             <div className="mb-3">

@@ -41,8 +41,8 @@ function NoteDetailsPage(props) {
 
     return (
         <>
-            <div className='container pt-4'>
-                <div className="container row pb-2">
+            <div className='container w-50 pt-4'>
+                <div className="row pb-2">
                     <div className='col-6'>
                         <button className="btn btn-primary w-100 justify-content-center" 
                                 onClick={()=>navigate(`/edit-note/${note.id}`)}
