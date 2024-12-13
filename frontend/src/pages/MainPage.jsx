@@ -5,15 +5,15 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-function MainLayout(props) {
+function MainPage(props) {
 
     return (
         <>
-            <NavBar searchedText={props.searchedText} handleSearchText={props.handleSearchText}/>
+            <NavBar searchedText={props.searchedText} handleSearchText={props.handleSearchText} handleLogout={props.handleLogout}/>
             <ToastContainer position='bottom-right' />
             <Outlet />
         </>
     );
 }
 
-export default MainLayout;
+export default MainPage;

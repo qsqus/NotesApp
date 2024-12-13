@@ -2,7 +2,6 @@ import React from "react";
 import './styles/Modal.css'
 import { useNavigate } from "react-router-dom";
 
-// ok
 function Modal(props) {
     const navigate = useNavigate();
     

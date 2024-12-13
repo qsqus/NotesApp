@@ -1,7 +1,6 @@
 import React from "react";
 
 
-// Ok
 function Filter(props) {
     return (
         <div className="container" style={{width: "500px", margin: "20px auto"}}>

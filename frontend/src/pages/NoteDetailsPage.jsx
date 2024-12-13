@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { BiSolidTrashAlt } from "react-icons/bi";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import baseURL from '../api';
+import { useNavigate, useParams } from "react-router-dom";
+import { getNote } from '../api';
 import Modal from '../components/Modal'
 
 function NoteDetailsPage(props) {
@@ -15,13 +14,13 @@ function NoteDetailsPage(props) {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(`${baseURL}${id}`)
-        .then((response) => {
-            setNote(n => response.data)
-        })
-        .catch((error) => {
-            console.log(error.message)
-        })
+        const fetchNote = async(noteId) => {
+            const resNote =  await getNote(noteId);
+            setNote(resNote);
+        }
+
+        fetchNote(id)
+
     }, [id]);
 
     const formatDate = (dateStr) => {

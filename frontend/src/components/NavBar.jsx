@@ -1,10 +1,20 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaSearch } from "react-icons/fa";
-import { FiPlusSquare } from "react-icons/fi";
+import { FiPlusSquare, FiLogOut } from "react-icons/fi";
 
-// ok
 function NavBar(props) {
+
+    const navigate = useNavigate();
+
+    const logout = async () => {
+        const isSuccess = props.handleLogout();
+
+        if (isSuccess) {
+            navigate('/login');
+        }
+    }
+
     return (
         <nav className="navbar" style={{ padding: '20px', backgroundColor: '#999797' }}>
             <div className="container d-flex justify-content-around">
@@ -21,19 +31,24 @@ function NavBar(props) {
                             placeholder="Search"
                             value={props.searchedText}
                             onChange={(event) => props.handleSearchText(event.target.value)}
-                            style={{backgroundColor: '#dadada', border: '0px'}}
+                            style={{ backgroundColor: '#dadada', border: '0px' }}
                         />
                         <button className="btn btn-primary" type="submit">
                             <FaSearch />
                         </button>
                     </div>
                 </div>
+                <div className='d-flex flex-row gap-4'>
+                    <Link to="/new-note" style={{ textDecoration: "none" }}>
+                        <button className="btn btn-primary">
+                            <FiPlusSquare style={{ fontSize: "20px" }} />
+                        </button>
+                    </Link>
 
-                <Link to="/new-note" style={{ textDecoration: "none" }}>
-                    <button className="btn btn-primary">
-                        <FiPlusSquare className="mb-1" style={{fontSize: "20px"}} /> &nbsp;New Note
+                    <button className='btn btn-danger' onClick={logout}>
+                        <FiLogOut style={{ fontSize: "20px" }}/>
                     </button>
-                </Link>
+                </div>
             </div>
         </nav>
     );

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MdStickyNote2 } from 'react-icons/md';
 
-// Ok
 function NoteCard(props) {
 
     // Chooses color
